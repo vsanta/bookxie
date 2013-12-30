@@ -3,7 +3,7 @@ require 'spec_helper'
 feature 'Book Page' do
 
   let!(:book) do
-    Book.create(title: 'Rails 3 Way', isbn: "0321601661", author: "Obie Fernandez", synopsis: "Ruby on Rails strips complexity from the development process, enabling professional developers to focus on what matters most: delivering business value via clean and maintainable code. The Rails 3 Way is the only comprehensive, authoritative guide to delivering production-quality code with Rails 3. Pioneering Rails expert Obie Fernandez and a team of leading experts illuminate the entire Rails 3 API, along with the idioms, design approaches, and libraries that make developing applications with Rails so powerful. Drawing on their unsurpassed experience and track record, they address  the real challenges development teams face, showing how to use Rails 3 to maximize your productivity.")
+    Book.create(title: 'Rails 3 Way', isbn: "0321601661", author: "Obie Fernandez", cover_path: "http://ecx.images-amazon.com/images/I/41CsLULhOfL._BO2,204,203,200_PIsitb-sticker-arrow-click,TopRight,35,-76_AA300_SH20_OU01_.jpg", synopsis: "Ruby on Rails strips complexity from the development process, enabling professional developers to focus on what matters most: delivering business value via clean and maintainable code. The Rails 3 Way is the only comprehensive, authoritative guide to delivering production-quality code with Rails 3. Pioneering Rails expert Obie Fernandez and a team of leading experts illuminate the entire Rails 3 API, along with the idioms, design approaches, and libraries that make developing applications with Rails so powerful. Drawing on their unsurpassed experience and track record, they address  the real challenges development teams face, showing how to use Rails 3 to maximize your productivity.")
   end
   scenario "View book page from homepage" do
     Given "I am at Bookxie homepage"
@@ -13,6 +13,7 @@ feature 'Book Page' do
     And "I see the book's ISBN"
     #And "I see the book's cover"
     And "I see the book's synopsis"
+    And "I see the cover of the book"
   end
 
   def i_am_at_bookxie_homepage
@@ -38,4 +39,9 @@ feature 'Book Page' do
   def i_see_the_books_synopsis
     expect(page).to have_content book.synopsis
   end
+
+  def i_see_the_cover_of_the_book
+    expect(page.find('img')['src']).to eq book.cover_path
+  end
+
 end
