@@ -41,6 +41,7 @@ group :development, :test do
   gem "capybara-webkit"
   gem 'simple_bdd'
   gem 'pry'
+  gem 'devise'
 end
 
 # Use ActiveModel has_secure_password
