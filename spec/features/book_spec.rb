@@ -11,7 +11,6 @@ feature 'Book Page' do
     Then "I see the book's title"
     And "I see the book's author"
     And "I see the book's ISBN"
-    #And "I see the book's cover"
     And "I see the book's synopsis"
     And "I see the cover of the book"
   end
