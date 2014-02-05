@@ -27,6 +27,7 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
+gem 'devise'
 gem 'slim'
 
 group :doc do
@@ -41,7 +42,6 @@ group :development, :test do
   gem "capybara-webkit"
   gem 'simple_bdd'
   gem 'pry'
-  gem 'devise'
 end
 
 # Use ActiveModel has_secure_password
